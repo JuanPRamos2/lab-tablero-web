@@ -4,9 +4,17 @@ const TAREAS = [
   { texto: "Abrir un Pull Request", hecha: false },
 ];
 
+<<<<<<< HEAD
 function mostrarEstadoVacio() {
   const aviso = document.querySelector("#vacio");
   aviso.hidden = TAREAS.length > 0;
+=======
+function actualizarContador() {
+  const pendientes = TAREAS.filter(function (t) {
+    return !t.hecha;
+  }).length;
+  document.querySelector("#contador").textContent = pendientes + " pendientes";
+>>>>>>> origin/main
 }
 
 function render() {
@@ -17,8 +25,9 @@ function render() {
     li.className = t.hecha ? "tarea hecha" : "tarea";
     li.textContent = t.texto;
     lista.appendChild(li);
-  });
-  mostrarEstadoVacio();
+  });	
+  actualizarContador();
+  mostrarEstadoVacio()
 }
 
 render();
